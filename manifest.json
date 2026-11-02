@@ -1,0 +1,32 @@
+{
+  "id": "/vachanas-for-humanity/",
+  "name": "Vachanas for Humanity",
+  "short_name": "Vachanas",
+  "description": "A multilingual library of Vachana literature and Sharana wisdom.",
+  "start_url": "/vachanas-for-humanity/",
+  "scope": "/vachanas-for-humanity/",
+  "display": "standalone",
+  "orientation": "any",
+  "dir": "ltr",
+  "lang": "en",
+  "background_color": "#004aad",
+  "theme_color": "#004aad",
+  "categories": [
+    "books",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icons/launchericon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/launchericon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
