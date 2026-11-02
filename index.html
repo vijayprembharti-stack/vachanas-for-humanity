@@ -191,5 +191,14 @@ function toggleTheme(){const n=!isL();if(n)document.documentElement.setAttribute
 try{const t=localStorage.getItem('vtheme');if(t=='night')document.documentElement.setAttribute('data-theme','night')}catch(e){}
 setBg(1);hero();
 </script>
+  <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register(
+      "/vachanas-for-humanity/service-worker.js"
+    );
+  });
+}
+</script>
 </body>
 </html>
