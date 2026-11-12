@@ -110,7 +110,455 @@ html.tt *{transition:background-color .45s,color .45s,border-color .45s!importan
 .logo{display:block;height:auto}.hero .logo{width:104px;margin-bottom:22px}.sam{display:flex;align-items:center;gap:14px;margin-bottom:12px}.sam .logo{width:70px;flex:none}.sam h3{margin:0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 22px}.pill{padding:8px 14px;border-radius:20px;border:1px solid var(--line);font-size:12px;color:var(--dim)}.pill.on{background:var(--gold);color:#06102B;border-color:var(--gold);font-weight:600}.blk h4{font-family:"Cormorant Garamond","Noto Sans Kannada","Noto Sans Devanagari","Noto Sans Telugu",serif;font-weight:500;font-size:15px;margin:24px 0 6px}.blk p{margin-bottom:12px}.blk li{margin-bottom:8px}.blk b{color:var(--mist);font-weight:500}
 .toast{position:absolute;left:24px;right:24px;bottom:90px;background:var(--gold);color:#06102B;padding:12px;border-radius:14px;text-align:center;font-size:13px;font-weight:500}
 .empty{color:var(--dim);text-align:center;padding:40px 0;font-size:14px}
+
+.hero{padding:14px 22px;gap:0}
+.hero .logo{width:66px;margin-bottom:7px}
+.hero .a{font-size:20px;line-height:1.15}
+.hero .b{margin:3px 0 13px;font-size:12px}
+.hero .c{font-size:34px;line-height:1.03}
+.hero .d{font-size:15px;margin:5px 0}
+.hero .btn{margin-top:12px;padding:12px 36px}
+.hero .hm{margin-top:8px}
+.dhome-cta{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:14px;padding:10px 18px;border:1px solid rgba(232,199,102,.58);border-radius:18px;background:rgba(27,48,112,.58);color:var(--gold);font-family:Montserrat,sans-serif;letter-spacing:.08em;font-size:11px;text-transform:uppercase}
+.dhome-cta small{font-size:9px;color:var(--dim);letter-spacing:.04em;text-transform:none}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dcat{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;padding:15px;border-radius:16px;border:1px solid var(--line);background:rgba(35,55,110,.28);min-height:68px}
+.dcat span{font-size:13px;line-height:1.35}
+.dcat small,.dcrumb{font-size:10px;color:var(--dim)}
+.dcrumb{margin:10px 0 6px;letter-spacing:.04em}
+.dnote{padding:13px 15px;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:rgba(35,55,110,.22);font-size:12px;line-height:1.5}
+.dnote b{color:var(--gold);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.dnote p{margin:6px 0 0}
+.dq{font-family:"Cormorant Garamond",serif;font-size:17px}
+.dnext{display:block;margin:16px auto 24px}
 </style>
+
+<style id="discovery-home-refinements">
+.hero{justify-content:center;gap:0;padding:12px 20px}
+.hero .logo{width:64px;margin-bottom:6px}.hero .a{font-size:20px;line-height:1.1}
+.hero .b{margin:2px 0 11px;font-size:12px}.hero .c{font-size:34px;line-height:1.02}
+.hero .d{font-size:15px;margin:3px 0}.hero>.btn#go{margin-top:12px;padding:11px 34px;min-width:132px}
+.dhome-title{margin-top:17px;font-family:Cinzel,serif;font-size:min(34px,8.1vw);font-weight:600;letter-spacing:.10em;line-height:1.15;text-transform:uppercase;background:linear-gradient(180deg,#FFF6D8 0%,#F6DC8E 35%,#D4A24A 70%,#F3D487 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 3px rgba(0,0,0,.55)) drop-shadow(0 0 12px rgba(240,190,90,.22));text-align:center}
+.hero>.denter{margin-top:10px;padding:11px 34px;min-width:132px;font-family:Cinzel,serif;text-transform:uppercase;letter-spacing:.18em;font-size:14px}
+.hero .hm{margin-top:9px}
+@media(max-height:700px){.hero .logo{width:52px;margin-bottom:3px}.hero .b{margin-bottom:7px}.hero .c{font-size:29px}.hero>.btn#go{margin-top:7px;padding:9px 30px}.dhome-title{margin-top:10px;font-size:min(29px,7.5vw)}.hero>.denter{margin-top:6px;padding:9px 30px}.hero .hm{margin-top:5px}}
+.dscr{isolation:isolate;overflow:hidden;background:radial-gradient(100% 55% at 8% 8%,rgba(48,91,190,.18),transparent 65%),radial-gradient(80% 45% at 100% 85%,rgba(105,65,180,.15),transparent 70%),linear-gradient(155deg,#070F30 0%,#050B24 58%,#080F2D 100%)}
+.dscr .pad{position:relative;z-index:2}.d-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.d-orb{position:absolute;border-radius:50%;filter:blur(28px);opacity:.25;animation:orbDrift 17s ease-in-out infinite alternate}
+.d-orb.o1{width:150px;height:150px;left:-55px;top:17%;background:#3158C8}
+.d-orb.o2{width:130px;height:130px;right:-50px;top:48%;background:#6746B8;animation-delay:-7s}
+.d-orb.o3{width:105px;height:105px;left:40%;bottom:4%;background:#B18A39;opacity:.13;animation-delay:-11s}
+.d-bubble{position:absolute;bottom:-70px;border:1px solid rgba(198,218,255,.22);border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.20),rgba(110,151,235,.07) 42%,rgba(105,139,220,.015) 72%);box-shadow:inset 0 0 16px rgba(190,215,255,.08),0 0 18px rgba(91,135,230,.08);animation:bubbleRise var(--dur,18s) linear infinite;animation-delay:var(--delay,0s)}
+.d-bubble:after{content:"";position:absolute;width:18%;height:18%;left:23%;top:20%;border-radius:50%;background:rgba(255,255,255,.48);filter:blur(1px)}
+@keyframes bubbleRise{0%{transform:translate3d(0,0,0) scale(.8);opacity:0}12%{opacity:.55}85%{opacity:.35}100%{transform:translate3d(var(--drift,28px),-115vh,0) scale(1.12);opacity:0}}
+@keyframes orbDrift{from{transform:translate3d(-10px,-12px,0) scale(.9)}to{transform:translate3d(24px,26px,0) scale(1.12)}}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.dcat{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:7px;padding:14px 13px;border-radius:18px;border:1px solid rgba(164,194,255,.34);background:linear-gradient(145deg,rgba(52,83,158,.70),rgba(23,41,94,.78) 72%);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 7px 20px rgba(0,0,0,.16);min-height:88px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.dcat:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,rgba(255,255,255,.10),transparent 38%,rgba(128,164,255,.08));opacity:.7}
+.dcat:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;left:var(--rx,50%);top:var(--ry,50%);transform:translate(-50%,-50%) scale(0);background:radial-gradient(circle,rgba(207,225,255,.24),rgba(139,177,255,.10) 42%,transparent 70%);pointer-events:none}
+.dcat:active{transform:scale(.975);border-color:rgba(235,204,120,.8);box-shadow:0 0 0 1px rgba(235,204,120,.16),0 0 24px rgba(113,153,255,.22)}
+.dcat:active:after{animation:cardRipple .55s ease-out}@keyframes cardRipple{to{transform:translate(-50%,-50%) scale(2.5);opacity:0}}
+.dcat .dicon{display:grid;place-items:center;width:29px;height:29px;border-radius:10px;background:linear-gradient(145deg,rgba(255,222,143,.22),rgba(128,162,255,.16));border:1px solid rgba(240,211,143,.24);font-size:16px;box-shadow:0 3px 12px rgba(0,0,0,.12)}
+.dcat span:not(.dicon){font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:650;line-height:1.32;color:#F3F6FF;letter-spacing:0}
+.dcat small{font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#C9D6F5}
+.dcat .dtag-icon{font-size:10px;color:#F0D38D;letter-spacing:.18em;margin-bottom:1px}
+.dfoot{position:relative;z-index:3;flex:none;padding:7px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;background:linear-gradient(180deg,rgba(5,11,36,0),rgba(5,11,36,.96) 28%)}
+.dback-bottom{font-family:Arial,Helvetica,sans-serif;font-size:12px;padding:6px 17px;border:1px solid rgba(157,187,255,.34);border-radius:18px;background:rgba(38,61,126,.58);color:#E6EDFF;line-height:1.2;backdrop-filter:blur(8px)}
+.dscr h2{font-family:"Cormorant Garamond",serif;font-size:28px;letter-spacing:0;color:#EAF0FF}
+.dscr .sub{font-size:15px;color:#AAB9E3}.dscr .back{font-family:Arial,Helvetica,sans-serif;font-size:12px}
+.dscr .dnote{background:linear-gradient(145deg,rgba(40,64,128,.62),rgba(17,30,73,.68));border-color:rgba(160,190,255,.25);border-radius:16px;backdrop-filter:blur(9px)}
+.dscr .vc{background:rgba(17,30,73,.72);border-color:rgba(160,190,255,.22);backdrop-filter:blur(10px)}
+.dnext{box-shadow:0 8px 25px rgba(77,112,220,.22)}
+@media(prefers-reduced-motion:reduce){.d-bubble,.d-orb{animation:none!important}.dcat{transition:none}.dcat:active:after{animation:none}}
+</style>
+
+
+<style id="discovery-visual-refinements-v2">
+/* Give the two home-page experiences a clearer visual separation. */
+.dhome-title{
+  margin-top:29px!important;
+  white-space:nowrap!important;
+  font-size:clamp(18px,5.5vw,25px)!important;
+  letter-spacing:.075em!important;
+  line-height:1.08!important;
+  max-width:100%;
+}
+.hero>.denter{margin-top:13px!important}
+@media(max-height:700px){
+ .dhome-title{margin-top:19px!important;font-size:clamp(17px,5vw,23px)!important}
+}
+
+/* Category cards use a family of cool hues that harmonise with the navy canvas. */
+.dgrid>.dcat:nth-child(6n+1){background:linear-gradient(145deg,rgba(57,91,169,.78),rgba(29,48,105,.86))}
+.dgrid>.dcat:nth-child(6n+2){background:linear-gradient(145deg,rgba(48,105,145,.76),rgba(24,59,103,.87))}
+.dgrid>.dcat:nth-child(6n+3){background:linear-gradient(145deg,rgba(83,77,155,.76),rgba(43,43,111,.88))}
+.dgrid>.dcat:nth-child(6n+4){background:linear-gradient(145deg,rgba(48,112,125,.76),rgba(23,68,91,.88))}
+.dgrid>.dcat:nth-child(6n+5){background:linear-gradient(145deg,rgba(103,83,145,.73),rgba(51,48,105,.88))}
+.dgrid>.dcat:nth-child(6n){background:linear-gradient(145deg,rgba(67,102,151,.78),rgba(31,56,104,.88))}
+.dgrid>.dcat{border-color:rgba(181,205,255,.38)}
+.dgrid>.dcat:active{border-color:rgba(246,214,145,.9);filter:brightness(1.13)}
+
+/* Make explanatory labels and reflections easy to read at a glance. */
+.dnote{font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important;line-height:1.55!important}
+.dnote b{font-family:Arial,Helvetica,sans-serif!important;font-size:11px!important;font-weight:700;letter-spacing:.09em}
+.dnote p{font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important;line-height:1.55!important;color:#E2E9FC}
+.dq{font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important}
+.dq p{font-family:Arial,Helvetica,sans-serif!important;font-size:15px!important;line-height:1.55!important;font-weight:500;color:#F0F4FF}
+
+/* Reusable animated bubble layer on every app screen, not just Discovery. */
+.scr{isolation:isolate}
+.global-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;contain:paint}
+.global-atmosphere .d-bubble{opacity:.42}
+.global-atmosphere .d-orb{opacity:.13;filter:blur(34px)}
+.scr>.global-atmosphere~*{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){
+ .global-atmosphere .d-bubble,.global-atmosphere .d-orb{animation:none!important}
+}
+</style>
+
+
+<style id="discovery-polish-v3">
+/* Restore a prominent Samithi emblem and give the two home experiences room. */
+.hero .logo{width:104px!important;max-width:30vw;height:auto;margin-bottom:10px!important}
+.dhome-title{
+ margin-top:39px!important;
+ color:#E9EDF5!important;
+ -webkit-text-fill-color:transparent!important;
+ background:linear-gradient(180deg,#FFFFFF 0%,#E6EAF2 28%,#AEB8CA 58%,#F7F8FC 78%,#BFC8D8 100%)!important;
+ -webkit-background-clip:text!important;background-clip:text!important;
+ filter:drop-shadow(0 2px 3px rgba(0,0,0,.65)) drop-shadow(0 0 10px rgba(210,222,245,.18))!important;
+}
+.hero>.denter{margin-top:15px!important}
+.hero .hm{
+ position:absolute!important;top:12px!important;left:12px!important;
+ margin:0!important;padding:7px 10px!important;
+ z-index:8!important;align-self:flex-start!important;
+}
+@media(max-height:700px){
+ .hero .logo{width:88px!important;margin-bottom:7px!important}
+ .dhome-title{margin-top:25px!important}
+}
+
+/* Brighter, more playful colourways that remain within the blue palette. */
+.dgrid>.dcat:nth-child(6n+1){background:linear-gradient(145deg,rgba(54,112,226,.94),rgba(34,65,151,.94))!important;border-color:rgba(139,184,255,.62)!important}
+.dgrid>.dcat:nth-child(6n+2){background:linear-gradient(145deg,rgba(23,145,181,.92),rgba(24,83,143,.95))!important;border-color:rgba(111,218,239,.54)!important}
+.dgrid>.dcat:nth-child(6n+3){background:linear-gradient(145deg,rgba(113,91,207,.92),rgba(62,57,151,.96))!important;border-color:rgba(187,167,255,.58)!important}
+.dgrid>.dcat:nth-child(6n+4){background:linear-gradient(145deg,rgba(19,145,142,.92),rgba(21,91,112,.96))!important;border-color:rgba(112,226,213,.54)!important}
+.dgrid>.dcat:nth-child(6n+5){background:linear-gradient(145deg,rgba(160,93,190,.91),rgba(86,58,148,.96))!important;border-color:rgba(218,164,255,.54)!important}
+.dgrid>.dcat:nth-child(6n){background:linear-gradient(145deg,rgba(64,128,202,.94),rgba(38,75,145,.96))!important;border-color:rgba(150,202,255,.58)!important}
+.dgrid>.dcat .dicon{background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-color:rgba(255,255,255,.32)}
+.dgrid>.dcat small{color:#E2ECFF!important}
+
+/* Keep the result page's Back action at the bottom, after Discover Another. */
+.dresult-foot{position:relative;z-index:4;flex:none;display:flex;justify-content:center;padding:6px 20px calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(5,11,36,0),rgba(5,11,36,.98) 30%)}
+.dresult-foot .dback-bottom{margin:0}
+</style>
+
+
+<style id="discovery-card-typography-v4">
+/* Category artwork becomes a large, recognisable watermark behind the label. */
+.dgrid>.dcat-main{
+ min-height:116px!important;
+ padding:16px 14px!important;
+ justify-content:center!important;
+ gap:7px!important;
+ text-align:left!important;
+ transform-origin:center;
+ animation:discoveryCardSway 7.5s ease-in-out infinite alternate;
+}
+.dgrid>.dcat-main:nth-child(even){animation-delay:-3.7s}
+.dgrid>.dcat-main .dicon{
+ position:absolute!important;
+ right:5px!important;
+ bottom:-15px!important;
+ width:auto!important;height:auto!important;
+ display:block!important;
+ border:0!important;border-radius:0!important;
+ background:none!important;box-shadow:none!important;
+ font-family:"Segoe UI Symbol","Arial Unicode MS",sans-serif!important;
+ font-size:94px!important;line-height:1!important;
+ color:rgba(255,255,255,.30)!important;
+ opacity:1!important;
+ text-shadow:0 3px 22px rgba(255,255,255,.18),0 0 24px rgba(180,213,255,.20)!important;
+ pointer-events:none!important;
+ z-index:0!important;
+}
+.dgrid>.dcat-main .dcat-label{
+ position:relative!important;z-index:1!important;
+ display:block!important;
+ max-width:92%;
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-size:15px!important;font-weight:800!important;
+ line-height:1.22!important;letter-spacing:-.02em!important;
+ color:#FFFFFF!important;
+ text-shadow:0 1px 4px rgba(0,0,0,.34);
+}
+.dgrid>.dcat-main small{
+ position:relative!important;z-index:1!important;
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-size:11px!important;font-weight:650!important;
+ color:#F0F5FF!important;
+}
+.dgrid>.dcat-theme{
+ min-height:92px!important;
+ padding:16px 14px!important;
+ justify-content:center!important;
+ gap:8px!important;
+ animation:discoveryCardSway 8.5s ease-in-out infinite alternate;
+}
+.dgrid>.dcat-theme:nth-child(odd){animation-delay:-4.1s}
+.dgrid>.dcat-theme .dcat-label{
+ display:block!important;position:relative;z-index:1;
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-size:16px!important;font-weight:800!important;
+ line-height:1.25!important;letter-spacing:-.015em!important;
+ color:#FFFFFF!important;
+ text-shadow:0 1px 4px rgba(0,0,0,.30);
+}
+.dgrid>.dcat-theme small{
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-size:11px!important;font-weight:600!important;color:#EAF2FF!important;
+}
+@keyframes discoveryCardSway{
+ 0%{transform:perspective(700px) rotateY(-.35deg) rotateZ(-.12deg)}
+ 100%{transform:perspective(700px) rotateY(.35deg) rotateZ(.12deg)}
+}
+@media(prefers-reduced-motion:reduce){
+ .dgrid>.dcat-main,.dgrid>.dcat-theme{animation:none!important}
+}
+</style>
+
+
+<style id="home-and-theme-visuals-v5">
+/* Home page composition follows the supplied portrait reference. */
+.hero{justify-content:flex-start!important;padding:0 24px!important}
+.hero .logo{width:100px!important;max-width:none!important;margin-top:154px!important;margin-bottom:20px!important}
+.hero .a{font-size:22px!important;letter-spacing:.16em!important}
+.hero .b{font-size:13px!important;letter-spacing:.32em!important;margin:8px 0 26px!important}
+.hero .c{font-size:39px!important;line-height:1.12!important;letter-spacing:.13em!important}
+.hero .d{font-size:18px!important;margin:8px 0!important}
+.hero>.btn#go{margin-top:42px!important;min-width:128px!important;padding:12px 35px!important;font-size:14px!important}
+.dhome-title{
+ margin-top:50px!important;
+ font-size:clamp(23px,6.3vw,31px)!important;
+ letter-spacing:.07em!important;
+ white-space:nowrap!important;
+}
+.hero>.denter{margin-top:48px!important;min-width:128px!important;padding:12px 35px!important;font-size:14px!important}
+.hero .hm{
+ position:absolute!important;top:16px!important;left:12px!important;
+ display:flex!important;align-items:center!important;gap:12px!important;
+ min-height:40px!important;padding:8px 13px!important;
+ border-radius:24px!important;border:1px solid rgba(129,157,255,.45)!important;
+ background:linear-gradient(135deg,rgba(39,57,145,.62),rgba(18,31,91,.72))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 5px 18px rgba(0,0,0,.18)!important;
+ color:#EAF0FF!important;z-index:8!important;
+}
+.hero .hm svg{width:19px!important;height:19px!important}
+.hero .hm span{font-family:Cinzel,serif!important;font-size:11px!important;font-weight:600!important;letter-spacing:.16em!important;text-transform:uppercase!important}
+@media(max-height:760px){
+ .hero .logo{margin-top:95px!important;width:88px!important;margin-bottom:12px!important}
+ .hero .b{margin-bottom:16px!important}.hero .c{font-size:33px!important}
+ .hero>.btn#go{margin-top:22px!important}.dhome-title{margin-top:28px!important;font-size:clamp(21px,5.8vw,27px)!important}
+ .hero>.denter{margin-top:25px!important}
+}
+@media(max-height:660px){
+ .hero .logo{margin-top:70px!important;width:76px!important}
+ .hero .c{font-size:29px!important}.hero>.btn#go{margin-top:14px!important}
+ .dhome-title{margin-top:20px!important}.hero>.denter{margin-top:18px!important}
+}
+
+/* Keep the same large watermark treatment on theme cards as category cards. */
+.dgrid>.dcat-theme{position:relative!important;isolation:isolate!important;overflow:hidden!important}
+.dgrid>.dcat-theme .dtheme-icon{
+ position:absolute!important;right:5px!important;bottom:-17px!important;
+ z-index:0!important;pointer-events:none!important;
+ display:block!important;width:auto!important;height:auto!important;
+ font-family:"Segoe UI Symbol","Arial Unicode MS",sans-serif!important;
+ font-size:82px!important;line-height:1!important;
+ color:rgba(255,255,255,.29)!important;
+ text-shadow:0 3px 22px rgba(255,255,255,.18),0 0 24px rgba(180,213,255,.20)!important;
+}
+.dgrid>.dcat-theme .dcat-label,.dgrid>.dcat-theme small{position:relative!important;z-index:1!important}
+.dgrid>.dcat-theme .dcat-label{max-width:90%!important;font-size:16px!important;font-weight:800!important;line-height:1.25!important}
+.dgrid>.dcat-theme small{font-size:11px!important;font-weight:650!important}
+</style>
+
+
+<style id="discovery-layout-fix-v6">
+/* Fit the complete silver Discovery title within narrow mobile screens. */
+.dhome-title{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  white-space:nowrap!important;
+  font-size:clamp(15px,5.15vw,28px)!important;
+  letter-spacing:.035em!important;
+  line-height:1.12!important;
+  transform:none!important;
+  overflow:visible!important;
+  text-align:center!important;
+}
+@media(max-width:360px){
+ .dhome-title{font-size:15px!important;letter-spacing:.015em!important}
+}
+
+/* Subcategory cards only: remove decorative watermark symbols and centre text.
+   Main category cards (.dcat-main) remain unchanged. */
+.dgrid>.dcat-theme{
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  min-height:92px!important;
+  padding:15px 12px!important;
+  gap:9px!important;
+}
+.dgrid>.dcat-theme .dtheme-icon{display:none!important}
+.dgrid>.dcat-theme .dcat-label{
+  width:100%!important;
+  max-width:100%!important;
+  text-align:center!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:16px!important;
+  font-weight:800!important;
+  line-height:1.25!important;
+}
+.dgrid>.dcat-theme small{
+  width:100%!important;
+  text-align:center!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:11px!important;
+}
+</style>
+
+
+<style id="discovery-title-readable-v7">
+.dhome-title{
+ display:block!important;width:100%!important;max-width:100%!important;
+ box-sizing:border-box!important;white-space:nowrap!important;
+ font-size:clamp(17px,5.1vw,25px)!important;
+ letter-spacing:.02em!important;line-height:1.12!important;
+ text-align:center!important;overflow:visible!important;
+}
+@media(max-width:350px){
+ .dhome-title{font-size:16px!important;letter-spacing:0!important}
+}
+</style>
+
+
+<style id="plus-jakarta-discovery-design">
+/* Consistent modern typography for both levels of Vachana Discovery.
+   Google Font loads when online; system sans-serif remains as fallback. */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.dscr .dgrid,
+.dscr .dgrid button,
+.dscr .dcat,
+.dscr .dcat-label,
+.dscr .dcat small {
+  font-family:"Plus Jakarta Sans",Arial,Helvetica,sans-serif!important;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Main category panels: clear, confident names with softly illuminated depth. */
+.dscr .dgrid>.dcat-main {
+  position:relative!important;
+  isolation:isolate!important;
+  border-width:1px!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.17),
+    inset 0 -16px 30px rgba(5,12,42,.12),
+    0 8px 22px rgba(0,0,0,.17)!important;
+  transition:transform .22s ease,border-color .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+.dscr .dgrid>.dcat-main .dcat-label {
+  font-family:"Plus Jakarta Sans",Arial,Helvetica,sans-serif!important;
+  font-size:16px!important;
+  font-weight:800!important;
+  line-height:1.24!important;
+  letter-spacing:-.035em!important;
+  color:#FFFFFF!important;
+  text-shadow:0 1px 3px rgba(5,12,35,.55),0 0 10px rgba(255,255,255,.08)!important;
+}
+.dscr .dgrid>.dcat-main small {
+  font-family:"Plus Jakarta Sans",Arial,Helvetica,sans-serif!important;
+  font-size:11.5px!important;
+  font-weight:600!important;
+  letter-spacing:-.01em!important;
+  color:#F1F5FF!important;
+  text-shadow:0 1px 3px rgba(5,12,35,.45)!important;
+}
+/* Large abstract symbols stay behind text and gain a subtle frosted highlight. */
+.dscr .dgrid>.dcat-main .dicon {
+  font-family:"Segoe UI Symbol","Arial Unicode MS",sans-serif!important;
+  color:rgba(231,241,255,.34)!important;
+  opacity:1!important;
+  filter:drop-shadow(0 2px 9px rgba(210,230,255,.16))!important;
+  -webkit-text-stroke:1px rgba(255,255,255,.08);
+}
+
+/* Subcategory panels: centred, clean, bold and easy to scan. */
+.dscr .dgrid>.dcat-theme {
+  position:relative!important;
+  isolation:isolate!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  min-height:96px!important;
+  padding:16px 13px!important;
+  gap:9px!important;
+  border-width:1px!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -14px 28px rgba(5,12,42,.12),
+    0 7px 20px rgba(0,0,0,.16)!important;
+  transition:transform .22s ease,border-color .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+.dscr .dgrid>.dcat-theme .dtheme-icon {display:none!important}
+.dscr .dgrid>.dcat-theme .dcat-label {
+  width:100%!important;
+  max-width:100%!important;
+  text-align:center!important;
+  font-family:"Plus Jakarta Sans",Arial,Helvetica,sans-serif!important;
+  font-size:17px!important;
+  font-weight:700!important;
+  line-height:1.25!important;
+  letter-spacing:-.035em!important;
+  color:#FFFFFF!important;
+  text-shadow:0 1px 3px rgba(5,12,35,.48)!important;
+}
+.dscr .dgrid>.dcat-theme small {
+  width:100%!important;
+  text-align:center!important;
+  font-family:"Plus Jakarta Sans",Arial,Helvetica,sans-serif!important;
+  font-size:11.5px!important;
+  font-weight:600!important;
+  letter-spacing:-.01em!important;
+  color:#F0F5FF!important;
+  text-shadow:0 1px 3px rgba(5,12,35,.42)!important;
+}
+
+/* Small warm-gold detail, used as a restrained highlight rather than decoration. */
+.dscr .dcat:active {
+  border-color:rgba(245,211,133,.95)!important;
+  filter:brightness(1.10)!important;
+  box-shadow:0 0 0 1px rgba(245,211,133,.20),0 0 22px rgba(245,211,133,.15),0 9px 24px rgba(0,0,0,.2)!important;
+}
+@media(hover:hover){
+ .dscr .dgrid>.dcat:hover {
+   transform:translateY(-2px)!important;
+   border-color:rgba(224,231,255,.66)!important;
+   filter:brightness(1.06)!important;
+   box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 11px 25px rgba(0,0,0,.22),0 0 16px rgba(150,190,255,.10)!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .dscr .dgrid>.dcat{transition:none!important}
+}
+</style>
+
 </head>
 <body>
 <div class="phone" id="app"></div>
@@ -261,7 +709,128 @@ function homeMenu(){const d=document.createElement('div');d.className='dr';
 d.innerHTML=`<div class="bk2"></div><aside><div class="dh"><div><h3>Menu</h3></div><button class="spk" aria-label="Close">×</button></div><div class="dl">${[['ab','About',''],['am','ವಚನಾಮೃತ','mk'],['el',EMINENT_TITLE,'mk'],['ct','Contact','']].map(r=>`<button class="mi" data-m="${r[0]}"><span class="${r[2]}">${r[1]}</span><span>›</span></button>`).join('')}</div></aside>`;
 A.appendChild(d);const c=()=>{d.classList.add('out');setTimeout(()=>d.remove(),260)};d.querySelector('.bk2').onclick=c;d.querySelector('.spk').onclick=c;
 d.querySelectorAll('.mi').forEach(m=>m.onclick=()=>{d.remove();const k=m.dataset.m;fadeTo(k=='am'?amruta:k=='el'?eminent:()=>info(k=='ab'?'a':'c'))})}
-function hero(){A.innerHTML=`<div class="scr hero"><img class="logo" src="${LOGO}" alt="Basava Samithi emblem"><div class="cz a">Basava Samithi</div><div class="cz b">Presents</div><div class="cz c">Vachanas</div><div class="cz d">for</div><div class="cz c">Humanity</div><button class="btn" id="go">Enter</button><button class="spk hm" id="hm" aria-label="Explore more"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Explore More</span></button></div>`;go.onclick=()=>fadeTo(pick);hm.onclick=homeMenu}
+
+const DISCOVERY={"categories":{"Emotions & Mental States":{"tags":[{"name":"Restlessness","ids":[60],"why":"The speaker describes a mind that will not remain still, moving from one place or state to another.","quote":"A mind that runs in every direction struggles to recognise the peace already within."},{"name":"Mental Agitation","ids":[60,490],"why":"The mind's rapid and uncontrolled movement creates intense inner disturbance and prevents composure.","quote":"When thoughts keep racing, even a quiet place cannot give the mind rest."},{"name":"Resentment","ids":[62],"why":"The speaker admits resentment toward the Sharanas and recognises that this feeling diminishes the quality of devotion.","quote":"Resentment within the heart can weaken the devotion we profess."},{"name":"Fear","ids":[498,1289],"why":"The Vachana questions becoming a devotee merely out of fear of death, showing that fear alone cannot provide spiritual freedom.","quote":"Fear may drive us toward refuge, but it cannot by itself transform us."},{"name":"Righteous Anger","ids":[499,1299],"why":"The Vachana describes anger arising in the minds of Shiva Sharanas and being directed toward slanderers, rather than presented as indiscriminate rage.","quote":"Not every fire is born of hatred; some rises to confront falsehood."},{"name":"Equanimity","ids":[904,1293],"why":"The Vachana describes a Sharana who bears neither anger nor elation toward all living beings.","quote":"Inner freedom begins when neither anger nor excitement rules the heart."},{"name":"Worldly Desire","ids":[907,911,1171,1172,1282,1293,1298,1389],"why":"The Vachana insists that worldly craving must cease for devotion to become genuine rather than performative.","quote":"The heart cannot be wholly devoted while every desire pulls it elsewhere."},{"name":"Delusion","ids":[492,908,914,1008,1718],"why":"The opening line describes the Sharana as undeluded in Shivayoga and free from wavering between resolve and doubt.","quote":"Clarity begins when illusion no longer speaks in the voice of truth."},{"name":"Lust","ids":[909,1179],"why":"The Vachana directly condemns desire directed toward another person's spouse as incompatible with devotion.","quote":"Desire can undo in a moment the reverence we practise for years."},{"name":"Inner Serenity","ids":[911,1006],"why":"The Vachana defines true virtue as the mind abiding in the Supreme and becoming firmly established in inner serenity.","quote":"True serenity arrives when the mind finds a place where it no longer needs to wander."}]},"Spirituality & Existence":{"tags":[{"name":"Spiritual Longing","ids":[60],"why":"The speaker longs to overcome the mind's turbulence and attain union with the Divine.","quote":"The search for union begins with the honest recognition of our inner restlessness."},{"name":"Divine Oneness","ids":[61,916,1010,1714,1715],"why":"The Vachana directly declares that the Divine is one and rejects the idea of multiple independent gods.","quote":"Truth does not multiply when we give it many names."},{"name":"Devotion","ids":[62,491,496,500,906,910,917,1004,1177,1178,1180,1286,1295,1386],"why":"The Vachana reflects on the completeness of devotion by contrasting the endurance of earlier devotees with the speaker's own failing.","quote":"Devotion deepens when reverence remains even in moments of personal discomfort."},{"name":"Inner Receptivity","ids":[63],"why":"The Vachana points to the inward readiness required to perceive and respond to the spiritual path.","quote":"Wisdom begins when the inner self becomes ready to receive what it once missed."},{"name":"Self-Realisation","ids":[65,491,493,1001,1007,1010,1292,1381,1385,1389,1717],"why":"The Vachana links becoming a Sharana with recognising and awakening one's inner nature.","quote":"We come closer to truth when we recognise what has always been within."},{"name":"Forgetfulness","ids":[65,490],"why":"The contrast between awareness and forgetfulness warns against losing sight of the spiritual truth one has recognised.","quote":"What we forget within can matter more than what we gather outside."},{"name":"Divine Grace","ids":[491],"why":"The sanctifying power is attributed to the Divine presence, whose touch makes ordinary places and experiences sacred.","quote":"Grace changes not only where we stand, but how we experience all that surrounds us."},{"name":"Delusion","ids":[492,908,914,1008,1718],"why":"The Vachana identifies the notions of having seen, not seen, united or separated as delusive distinctions that must dissolve.","quote":"Sometimes the final illusion is believing that we have already reached the truth."},{"name":"Inner Experience","ids":[497,1717],"why":"The Vachana says that only one who tastes the bliss of Anubhava can know the subtle state in which Guheshwara abides.","quote":"Some truths cannot be displayed; they become clear only through lived experience."},{"name":"Unmanifest Reality","ids":[497,1387,1715],"why":"The fire within stone and the tree within the seed illustrate the subtle, concealed and unmanifest presence of ultimate reality.","quote":"Not everything real announces itself; some truths remain hidden until they are experienced."},{"name":"Karma","ids":[498,908],"why":"The Vachana explicitly asks whether devotion motivated only by fear can escape the consequences of karma.","quote":"Changing our outward appearance does not erase the consequences of our actions."},{"name":"Surrender","ids":[901,1174],"why":"Having recognised the Divine as the very source of sensory experience, the speaker no longer approaches it as a separate giver to be petitioned.","quote":"When separation disappears, prayer is no longer a request from one to another."},{"name":"Reward-Seeking","ids":[910,1281,1388],"why":"The Vachana explicitly identifies practitioners who observe rules, vows and renunciation while remaining attached to their fruits.","quote":"A spiritual act loses its freedom when the mind keeps counting its rewards."},{"name":"Spiritual Imitation","ids":[920,1003,1283,1287,1288,1380,1383],"why":"The Vachana criticises practices performed merely out of habit or by watching others, without spontaneity or genuine understanding.","quote":"Following a ritual is not the same as discovering the truth it was meant to awaken."},{"name":"Liberation","ids":[1001,1170,1172,1284,1298,1717],"why":"The Vachana explicitly says that the Guru severed the speaker's cycle of worldly existence.","quote":"Freedom begins when the source of our bondage is finally understood."},{"name":"Inner Bliss","ids":[1006],"why":"The Vachana declares pure, authentic bliss to be the true ornament of the Sharanas.","quote":"The finest ornament is an inner joy that no outward possession can provide."},{"name":"Worldly Detachment","ids":[1009,1170,1177,1178,1284,1287,1290,1293,1389,1390],"why":"The fish remains immersed in water without allowing it to enter its nostrils; similarly, the Sharana lives in the world without becoming inwardly entangled.","quote":"Be fully present in the world without letting the world take possession of your inner life."},{"name":"Divine Remembrance","ids":[1171,1716],"why":"The Vachana says that a body without remembrance of the Divine becomes vulnerable, like an unguarded home or kingdom.","quote":"Remembrance gives the inner life the strength that keeps it from being overrun."},{"name":"Inner Abundance","ids":[1291,1295,1297],"why":"The Vachana distinguishes bodily poverty from the inner abundance of a devotee sustained by the Divine.","quote":"A life may lack possessions and still be rich beyond measure."},{"name":"Spiritual Commitment","ids":[918,919,1004,1177,1180,1289,1294,1716],"why":"The cracked-pot metaphor shows that devotion without firmness cannot reach the Divine; steadfastness is essential.","quote":"Devotion needs steadiness, or its meaning leaks away like water from a broken vessel."},{"name":"Maya","ids":[499,1380],"why":"The Vachana names Maya as the deceptive force behind extreme outward practices that mislead seekers about the nature of spiritual attainment.","quote":"Not every path that looks spiritual leads beyond illusion."}]},"Self, Character & Personal Growth":{"tags":[{"name":"Religious Pride","ids":[61,1388],"why":"The opening warning criticises boastful speech about the number of gods, linking religious claims with pride.","quote":"Pride debates about the Divine; humility turns toward the truth."},{"name":"Forbearance","ids":[62,902],"why":"The speaker recalls devotees who endured severe suffering and ridicule, presenting endurance as a measure of devotion.","quote":"The depth of devotion is revealed by what the heart can endure without hatred."},{"name":"Ego","ids":[69,493,904,905,907,910,1174,1179,1281,1385],"why":"The Vachana's self-reproach identifies the ego's impulse to rank others as a source of inner suffering.","quote":"The ego seeks higher ground; wisdom learns to stand with everyone."},{"name":"Fortitude","ids":[902,1004,1289,1291,1390],"why":"The comparisons with a warrior and a steadfast person show that courage is known when one faces pressure or adversity.","quote":"Strength is not what we claim; it is what remains when we are tested."},{"name":"Spiritual Humility","ids":[904,1176,1282,1383],"why":"The Sharana remains hidden among true devotees and does not advertise spiritual status or identity to the world.","quote":"True humility does not need the world to notice its goodness."},{"name":"Sensory Discipline","ids":[906,909,917,1382],"why":"The Vachana describes the senses as being directed toward the Linga rather than moving independently toward self-centred enjoyment.","quote":"Freedom is not refusing to experience life, but transforming how we experience it."},{"name":"Integrated Virtue","ids":[912],"why":"The contrast between separate forms of virtue and Sanganabasavanna's Lingavanta state supports the idea of integrated spiritual character.","quote":"Growth is complete when goodness is no longer divided into separate performances."},{"name":"Self-Respect","ids":[917,1291],"why":"The consecrated hand of the Sharana is not stretched out to beg, expressing spiritual dignity and autonomy.","quote":"Dignity grows when we refuse to trade inner freedom for approval or favours."},{"name":"Spiritual Commitment","ids":[918,919,1004,1177,1180,1289,1294,1716],"why":"The Vachana states that separating from the Pranalinga entrusted to the mind and hand constitutes breaking one's vow.","quote":"Commitment is proven not by a promise, but by choosing faithfulness each day."},{"name":"Inner Transformation","ids":[1003,1170,1173,1175,1283,1285],"why":"The contrast between remembering past spiritual figures and actually becoming transformed highlights the need for personal change.","quote":"Borrowed inspiration matters only when it becomes a change in our own lives."}]},"Lingayat Philosophy & Sharana Teachings":{"tags":[{"name":"Spiritual Awareness","ids":[63,65,492,497,901,903,914,920,1007,1009,1171,1173,1285,1287,1288,1292,1300,1381,1384,1387,1714,1718],"why":"The sensory comparisons show that the spiritual path cannot be recognised without inner awareness and receptivity.","quote":"The path may be near, but awareness is what allows us to recognise it."},{"name":"Jangama","ids":[67,903,915,1002,1005,1175,1178,1300],"why":"The Jangama is the central subject of the Vachana, which demands equal reverence and service regardless of appearance.","quote":"True reverence sees the person, not the status suggested by their appearance."},{"name":"Spiritual Equality","ids":[68,1295],"why":"The Vachana places spiritual fellowship and worth above inherited caste status.","quote":"The worth of a seeker is measured by inner truth, not inherited rank."},{"name":"Non-duality","ids":[61,492,493,495,901,908,919,1005,1007,1008,1010,1174,1284,1292,1385,1387],"why":"The Vachana dissolves the assumed separation between seeing and not seeing, union and separation, affirming that there is no distance from Guheshwaralinga.","quote":"When separation is seen as an illusion, union is no longer a distant goal."},{"name":"Spiritual Companionship","ids":[494,905,916,1175,1180],"why":"The Vachana states that wisdom flourishes in the presence of accomplished elder Sharanas, making spiritual fellowship a condition for growth.","quote":"The company of the wise can become the ground in which our own wisdom grows."},{"name":"Ishtalinga","ids":[495,500,906,912,918,919,1002,1286,1381,1718],"why":"The Vachana explicitly traces the Linga from the palm to the mind and then throughout the seeker's entire being.","quote":"What begins as a symbol in the hand must become a living awareness throughout life."},{"name":"Samarasa","ids":[495],"why":"Samarasa is explicitly named as the state of harmonious, undivided union with Guheshwaralinga.","quote":"The deepest harmony begins when the idea of two dissolves."},{"name":"Maya","ids":[499,1380],"why":"The closing line invokes Maya and declares that the speaker is not a target of its striking, consuming force.","quote":"When illusion loses its hold, it can no longer define who we are."},{"name":"Spiritual Identity","ids":[900],"why":"The Vachana defines identity through one's spiritual orientation rather than conventional social categories.","quote":"What defines the seeker is not the label received at birth, but the path embraced."},{"name":"Shatsthala","ids":[903],"why":"The Vachana explicitly measures compromised religious practices against the true understanding of Shatsthala.","quote":"A spiritual path is fulfilled through lived truth, not merely through its name."},{"name":"Prasada","ids":[903],"why":"Prasada is explicitly named, with its sanctity or awareness described as lost through admixture.","quote":"What is received as sacred must also be treated with integrity."},{"name":"Shivayoga","ids":[908],"why":"Shivayoga is explicitly named as the state in which the Sharana remains undeluded and established in supreme bliss.","quote":"The deepest discipline is to remain inwardly free while living in the world."},{"name":"Divine Oneness","ids":[61,916,1010,1714,1715],"why":"The Vachana describes the presence of Sanga as transforming the devotee's body and dwelling into Linga itself.","quote":"When the sacred is realised within, no distant place can contain it."},{"name":"Spiritual Commitment","ids":[918,919,1004,1177,1180,1289,1294,1716],"why":"The Vachana insists that the seeker must remain connected with the threefold Linga rather than dismissing that bond as unnecessary.","quote":"A spiritual path asks for more than belief; it asks for an unbroken relationship with truth."},{"name":"Guru","ids":[1001,1002,1005,1179,1300,1384],"why":"After exhausting external searches in caves and mountains, the speaker recognises the Guru as the one who ends worldly bondage.","quote":"The search changes direction when the Guru reveals what wandering could never find."},{"name":"Unmanifest Reality","ids":[497,1387,1715],"why":"The Vachana describes the Supreme as beyond physical attributes, mythological imagery and worldly traces.","quote":"What is infinite cannot be contained by the images through which we try to describe it."},{"name":"Inner Experience","ids":[497,1717],"why":"Anubhava is described as the essential support that gives the body stability and meaning.","quote":"Experience turns spiritual ideas into a truth that can sustain a life."}]},"Knowledge, Learning & Wisdom":{"tags":[{"name":"Ignorance","ids":[63,1384,1715],"why":"The blind and deaf metaphors describe the inability to recognise spiritual truth despite external signs and sounds.","quote":"Truth can be present all around us and still remain unseen."},{"name":"Wisdom","ids":[494,902,915,1003,1009,1176,1280,1286,1290],"why":"The concluding comparison identifies the presence of realised Sharanas as the environment in which discernment and wisdom grow.","quote":"Wisdom grows most deeply where it is lived, not merely spoken."}]},"Society, Equality & Justice":{"tags":[{"name":"Social Inclusion","ids":[64,900],"why":"The repeated contrast between 'Who is he?' and 'He is ours' rejects exclusion and calls for acceptance.","quote":"A humane community begins when no one is treated as a stranger."},{"name":"Universal Brotherhood","ids":[64,1386],"why":"The image of belonging to one Divine household expresses kinship that extends beyond social divisions.","quote":"Our shared humanity grows stronger when belonging is offered without conditions."},{"name":"Caste Discrimination","ids":[66,68,900,1299],"why":"The Vachana directly criticises caste-based selection in marriage despite claims that caste distinctions have vanished.","quote":"A boundary upheld in private can undo the equality proclaimed in public."},{"name":"Non-discrimination","ids":[67,69],"why":"The Vachana rejects ranking Jangamas by clothing, appearance, or outward social status.","quote":"Do not measure a person's worth by the clothes they wear."},{"name":"Prejudice","ids":[69,915,1176,1390],"why":"The speaker describes the inner anguish caused by judging Jangamas through a hierarchy of worth.","quote":"The prejudice we direct outward often becomes the fire within."},{"name":"Sacred Community","ids":[496,916],"why":"The Vachana describes the land inhabited by devotees as sacred, presenting a spiritually grounded community as a living holy place.","quote":"A place becomes sacred through the values embodied by the people who live there."},{"name":"Spiritual Equality","ids":[68,1295],"why":"The Vachana challenges the condescending assumption that devotees should be regarded as helpless recipients of charity because of material poverty.","quote":"Never mistake someone's material condition for the measure of their inner worth."}]},"Love, Relationships & Family":{"tags":[{"name":"Belonging","ids":[64,68],"why":"The speaker seeks acceptance as a member of the Divine household, expressing a deep need for spiritual belonging.","quote":"The deepest home is one in which no one must prove they belong."}]},"Ethics, Conduct & Human Values":{"tags":[{"name":"Hypocrisy","ids":[66,490,498,903,907,909,913,914,920,1173,1280,1281,1282,1283,1288,1290,1294,1380,1382,1388,1714,1716],"why":"The Vachana exposes the contradiction of claiming to reject caste distinctions in daily life while preserving them in marriage.","quote":"Equality is not genuine when it disappears at the moment of choice."},{"name":"Integrity","ids":[66,911,913,918,1294,1296,1297],"why":"The Vachana questions whether devotion is genuine when a person's actions contradict their stated belief in equality.","quote":"Our values become real only when our choices agree with our words."},{"name":"Impartial Service","ids":[67,905,1296,1383],"why":"The Vachana insists that food, clothing, wealth, and service be offered without favouring one Jangama over another.","quote":"Service becomes pure when the hand gives without ranking the receiver."},{"name":"Righteous Conduct","ids":[496,912,913,1006,1280,1285,1382,1386],"why":"The Vachana presents righteous conduct as the wick through which the flame of spiritual illumination shines.","quote":"Good conduct gives devotion a light the world can see."},{"name":"Slander","ids":[499,1299],"why":"The Vachana explicitly identifies slanderers as the target of the Sharanas' anger.","quote":"Words that wound the sincere can provoke a fire of their own."}]},"Life Challenges, Choices & Responsibilities":{"tags":[{"name":"Environment","ids":[494],"why":"The examples of crops, strength, sleep and conflict show that different conditions nurture different outcomes.","quote":"What grows within us is shaped, in part, by the ground around us."},{"name":"Human Necessity","ids":[500],"why":"The Vachana places devotion alongside bathing and food as a necessary part of embodied life.","quote":"Life asks us to care for the body, but also to care for what gives it meaning."},{"name":"Impermanence","ids":[1008,1172],"why":"The shifting reflections illustrate the unstable and changing nature of appearances in contrast with the unchanging original.","quote":"What changes before our eyes need not change the truth beneath it."}]},"Work, Wealth & Material Life":{"tags":[{"name":"Honest Livelihood","ids":[1296,1297,1298,1299],"why":"The Vachana questions whether resources acquired through rivalry or dishonest means can legitimately be called Kayaka.","quote":"Work is sacred only when the way we earn is as honest as the purpose we serve."}]},"Body, Health & Human Suffering":{"tags":[]},"Beyond Categories":{"tags":[]}}};
+let DISC_CAT=null,DISC_TAG=null,DISC_QUEUE=[],DISC_POS=0;
+
+
+const DISCOVERY_DISPLAY_GROUPS=[
+ {name:"Mind & Emotions",categories:["Emotions & Mental States"]},
+ {name:"Relationships & Society",categories:["Love, Relationships & Family","Society, Equality & Justice"]},
+ {name:"Self & Personal Growth",categories:["Self, Character & Personal Growth"]},
+ {name:"Knowledge & Wisdom",categories:["Knowledge, Learning & Wisdom"]},
+ {name:"Work & Everyday Life",categories:["Work, Wealth & Material Life","Life Challenges, Choices & Responsibilities"]},
+ {name:"Health & Human Wellbeing",categories:["Body, Health & Human Suffering"]},
+ {name:"Ethics & Human Values",categories:["Ethics, Conduct & Human Values"]},
+ {name:"Spirituality & Sharana Wisdom",categories:["Spirituality & Existence","Lingayat Philosophy & Sharana Teachings"]}
+];
+
+const DISC_DISPLAY_ICONS={
+ "Mind & Emotions":"☾",
+ "Relationships & Society":"♡",
+ "Self & Personal Growth":"✦",
+ "Knowledge & Wisdom":"✺",
+ "Work & Everyday Life":"⌁",
+ "Health & Human Wellbeing":"❀",
+ "Ethics & Human Values":"⚖",
+ "Spirituality & Sharana Wisdom":"✧"
+};
+
+function getDisplayCategoryData(group){
+ const merged=new Map();
+ group.categories.forEach(categoryName=>{
+  const source=DISCOVERY.categories[categoryName];
+  if(!source)return;
+  source.tags.forEach(tag=>{
+   if(!merged.has(tag.name)){
+    merged.set(tag.name,{...tag,ids:[...tag.ids],sourceCategories:[categoryName]});
+   }else{
+    const existing=merged.get(tag.name);
+    existing.ids=[...new Set([...existing.ids,...tag.ids])];
+    if(!existing.sourceCategories.includes(categoryName))existing.sourceCategories.push(categoryName);
+   }
+  });
+ });
+ return [...merged.values()].map(tag=>({...tag,ids:[...new Set(tag.ids)]}));
+}
+
+const DISC_ICONS={
+ "Emotions & Mental States":"☾","Spirituality & Existence":"✧",
+ "Self, Character & Personal Growth":"✦","Lingayat Philosophy & Sharana Teachings":"◈",
+ "Knowledge, Learning & Wisdom":"✺","Society, Equality & Justice":"⚖",
+ "Love, Relationships & Family":"♡","Ethics, Conduct & Human Values":"❖",
+ "Life Challenges, Choices & Responsibilities":"➤","Work, Wealth & Material Life":"⌁",
+ "Body, Health & Human Suffering":"❀","Beyond Categories":"∞"
+};
+const DISC_LABELS={
+ "Emotions & Mental States":"Emotions<br>Mental States",
+ "Spirituality & Existence":"Spirituality<br>Existence",
+ "Self, Character & Personal Growth":"Self, Character<br>Personal Growth",
+ "Lingayat Philosophy & Sharana Teachings":"Lingayat Philosophy<br>Sharana Teachings",
+ "Knowledge, Learning & Wisdom":"Knowledge<br>Learning<br>Wisdom",
+ "Society, Equality & Justice":"Society<br>Equality<br>Justice",
+ "Love, Relationships & Family":"Love<br>Relationships<br>Family",
+ "Ethics, Conduct & Human Values":"Ethics<br>Conduct<br>Human Values",
+ "Life Challenges, Choices & Responsibilities":"Life Challenges<br>Choices<br>Responsibilities",
+ "Work, Wealth & Material Life":"Work<br>Wealth<br>Material Life",
+ "Body, Health & Human Suffering":"Body<br>Health<br>Human Suffering",
+ "Beyond Categories":"Beyond<br>Categories"
+};
+
+function discoveryThemeIcon(name){
+ const n=(name||'').toLowerCase();
+ if(/fear|anger|resent|restless|agitat|sorrow|bliss|serenity|desire|lust|emotion/.test(n)) return '◉';
+ if(/wisdom|knowledge|learning|ignorance|awareness|realisation|experience/.test(n)) return '✺';
+ if(/love|brotherhood|companionship|belong|community|friend/.test(n)) return '♡';
+ if(/ego|self|identity|humility|integrity|character|virtue|respect/.test(n)) return '✦';
+ if(/justice|equality|inclusion|discrimin|prejudice|caste|impartial/.test(n)) return '⚖';
+ if(/work|livelihood|wealth|necessity|material|environment/.test(n)) return '⌁';
+ if(/karma|liberation|maya|impermanence|existence|reality|non-dual/.test(n)) return '∞';
+ if(/devotion|divine|guru|grace|surrender|remembrance|spiritual|sharana|linga|shatsthala|shivayoga/.test(n)) return '✧';
+ if(/fear|fortitude|forbearance|discipline|commitment|transformation/.test(n)) return '⬡';
+ if(/slander|hypocrisy|conduct|anger|reward|imitation/.test(n)) return '❖';
+ return '◇';
+}
+
+function discoveryAtmosphere(){
+ const bubbles=Array.from({length:13},(_,i)=>{
+  const left=[5,17,29,42,55,68,80,92,12,36,61,75,48][i];
+  const size=[13,21,9,16,26,11,18,8,15,23,10,19,12][i];
+  const dur=[17,22,19,25,20,23,18,26,21,24,19,22,27][i];
+  const delay=-[4,12,8,17,6,14,10,20,3,15,9,18,13][i];
+  const drift=(i%2?'-':'')+(12+(i*7)%32)+'px';
+  return `<i class="d-bubble" style="left:${left}%;width:${size}px;height:${size}px;--dur:${dur}s;--delay:${delay}s;--drift:${drift}"></i>`;
+ }).join('');
+ return `<div class="d-atmosphere" aria-hidden="true"><i class="d-orb o1"></i><i class="d-orb o2"></i><i class="d-orb o3"></i>${bubbles}</div>`;
+}
+
+function discoveryHome(){
+  const groups=DISCOVERY_DISPLAY_GROUPS;
+  A.innerHTML=`<div class="scr dscr">${discoveryAtmosphere()}<div class="pad"><button class="back" id="dhome">‹ Home</button><h2>Discover Your Vachana</h2><p class="sub">Explore timeless wisdom through themes that speak to everyday life.</p><div class="dgrid">${groups.map((g,i)=>`<button class="dcat dcat-main" data-c="${i}"><span class="dicon" aria-hidden="true">${DISC_DISPLAY_ICONS[g.name]||'✧'}</span><span class="dcat-label">${g.name}</span><small>${getDisplayCategoryData(g).length} themes</small></button>`).join('')}</div></div><div class="dfoot"><button class="dback-bottom" id="dhomebottom">‹ Back</button></div></div>`;
+  const goHome=()=>fadeTo(()=>{setBg(1);hero()});dhome.onclick=goHome;dhomebottom.onclick=goHome;
+  A.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{DISC_GROUP=groups[+b.dataset.c];DISC_CAT=DISC_GROUP.name;discoveryTags()});
+}
+function discoveryTags(){
+  const tags=getDisplayCategoryData(DISC_GROUP);
+  A.innerHTML=`<div class="scr dscr">${discoveryAtmosphere()}<div class="pad"><button class="back" id="dback">‹ Categories</button><h2>${DISC_CAT}</h2><p class="sub">Choose a theme to discover related Vachanas.</p><div class="dgrid">${tags.map((t,i)=>`<button class="dcat dcat-theme" data-t="${i}"><span class="dtheme-icon" aria-hidden="true">${discoveryThemeIcon(t.name)}</span><span class="dcat-label">${t.name}</span><small>${t.ids.length} related Vachana${t.ids.length===1?'':'s'}</small></button>`).join('')}</div></div><div class="dfoot"><button class="dback-bottom" id="dbackbottom">‹ Back</button></div></div>`;
+  dback.onclick=discoveryHome;dbackbottom.onclick=discoveryHome;
+  A.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{DISC_TAG=tags[+b.dataset.t];DISC_QUEUE=[...DISC_TAG.ids].filter(n=>BYNO.some(x=>+x.v.no===+n));DISC_POS=0;discoveryResult(true)});
+}
+function discoveryResult(first){
+  if(!DISC_QUEUE.length){discoveryTags();return}
+  const key='vfh-discovery-'+DISC_CAT+'-'+DISC_TAG.name;
+  let seen=[];try{seen=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){seen=[]}
+  let next=DISC_QUEUE.findIndex(n=>!seen.includes(n));
+  if(next<0){seen=[];next=0}
+  const no=DISC_QUEUE[next];seen.push(no);try{localStorage.setItem(key,JSON.stringify(seen))}catch(e){}
+  const x=BYNO.find(z=>+z.v.no===+no);
+  const why=DISC_TAG.why||'This Vachana is connected to the selected theme.';
+  const quote=DISC_TAG.quote||'';
+  A.innerHTML=`<div class="scr dscr">${discoveryAtmosphere()}<div class="pad"><button class="back" id="dtagback">‹ ${DISC_TAG.name}</button><div class="dcrumb">${DISC_CAT} · ${DISC_TAG.name}</div><h2>Your Vachana</h2>${vc(x)}<section class="dnote"><b>Why this Vachana?</b><p>${why}</p></section>${quote?`<section class="dnote dq"><b>Philosophical Reflection</b><p>${quote}</p></section>`:''}<button class="btn dnext" id="dnext">Discover Another Vachana</button></div><div class="dresult-foot"><button class="dback-bottom" id="dresultback">‹ Back</button></div></div>`;
+  dtagback.onclick=discoveryTags;dnext.onclick=()=>discoveryResult(false);dresultback.onclick=discoveryTags;
+}
+
+function hero(){A.innerHTML=`<div class="scr hero"><img class="logo" src="${LOGO}" alt="Basava Samithi emblem"><div class="cz a">Basava Samithi</div><div class="cz b">Presents</div><div class="cz c">Vachanas</div><div class="cz d">for</div><div class="cz c">Humanity</div><button class="btn" id="go">Enter</button><div class="dhome-title">Discover Your Vachana</div><button class="btn denter" id="discover">Enter</button><button class="spk hm" id="hm" aria-label="Explore more"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Explore More</span></button></div>`;go.onclick=()=>fadeTo(pick);discover.onclick=()=>fadeTo(discoveryHome);hm.onclick=homeMenu}
 function pick(){stopSpeak();setBg(0);A.innerHTML=`<div class="scr"><div class="pad"><h2>Choose your language</h2><p class="sub">Sharanas, vachanas and their meanings will appear in the language you pick. You can change it anytime.</p>${Object.keys(LN).map(k=>`<button class="lang ${k==lang?'on':''}" data-k="${k}">${LN[k][0]}<small>${LN[k][1]}</small></button>`).join('')}</div><div class="foot"><button class="ay2" id="bkh">‹ Back</button><button class="btn" id="go">Continue</button></div></div>`;
 A.querySelectorAll('.lang').forEach(b=>b.onclick=()=>{lang=b.dataset.k;document.documentElement.lang=lang;A.querySelectorAll('.lang').forEach(x=>x.classList.toggle('on',x==b))});go.onclick=()=>fadeTo(()=>{HOME=0;HS.length=0;sel=null;q='';det=null;tab='v';shell()});bkh.onclick=()=>fadeTo(()=>{setBg(1);hero()})}
 function vc(x){const{s,v}=x,lg=false;return `<article class="vc"><div class="meta"><b>${g(s.n)}</b><span>Vachana ${v.no}</span></div><p class="vt">${g(v.t)}</p>${v.o&&lang!='kn'?`<details class="orig"><summary>Original in Kannada</summary><p>${v.o}</p></details>`:''}<div class="mean ${lg?'cl':''}" ${lg?'onclick="this.classList.toggle(\'cl\')"':''}><i>Meaning</i><span class="tx">${g(v.m)}</span>${lg?'<span class="more"><span class="m1">Read more</span><span class="m2">Show less</span></span>':''}</div>${v.t[lang]?'':'<span class="fb">Translation pending. Showing English.</span>'}${acts(s,v)}</article>`}
@@ -280,7 +849,33 @@ const isL=()=>document.documentElement.getAttribute('data-theme')=='night';
 function setBg(s){A.style.background=s?BGS:(isL()?BGL:BGP)}
 function toggleTheme(){const R=document.documentElement;R.classList.add('tt');setTimeout(()=>R.classList.remove('tt'),500);const n=!isL();if(n)document.documentElement.setAttribute('data-theme','night');else document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('vtheme',n?'night':'day')}catch(e){}setBg(0);th.innerHTML=isL()?SUN:MOON}
 try{const t=localStorage.getItem('vtheme');if(t=='night')document.documentElement.setAttribute('data-theme','night')}catch(e){}
-setBg(1);hero();
+
+function installGlobalBubbles(){
+  const addLayer=(scr)=>{
+    if(!scr || scr.classList.contains('dscr') || scr.querySelector(':scope > .global-atmosphere')) return;
+    const layer=document.createElement('div');
+    layer.className='global-atmosphere';
+    layer.setAttribute('aria-hidden','true');
+    const bubbles=Array.from({length:11},(_,i)=>{
+      const left=[4,15,27,39,52,64,76,88,21,59,94][i];
+      const size=[10,17,24,12,19,9,22,14,8,16,11][i];
+      const dur=[19,24,21,27,18,23,26,20,25,22,28][i];
+      const delay=-[5,13,8,17,3,11,19,7,15,10,21][i];
+      const drift=(i%2?'-':'')+(10+(i*9)%30)+'px';
+      return `<i class="d-bubble" style="left:${left}%;width:${size}px;height:${size}px;--dur:${dur}s;--delay:${delay}s;--drift:${drift}"></i>`;
+    }).join('');
+    layer.innerHTML=`<i class="d-orb o1"></i><i class="d-orb o2"></i><i class="d-orb o3"></i>${bubbles}`;
+    scr.insertBefore(layer,scr.firstChild);
+  };
+  const scan=()=>A.querySelectorAll('.scr').forEach(addLayer);
+  scan();
+  if(window.MutationObserver){
+    const observer=new MutationObserver(scan);
+    observer.observe(A,{childList:true,subtree:true});
+  }
+}
+
+setBg(1);hero();installGlobalBubbles();
 </script>
 </body>
 </html>
